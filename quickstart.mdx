@@ -1,0 +1,127 @@
+---
+title: Quickstart Guide
+description: Set up your Fixit Jamaica account and create your first documentation space in minutes.
+---
+
+## Prerequisites
+
+Before starting, ensure you have:
+
+<Callout kind="info">
+
+- A modern web browser like Chrome, Firefox, or Safari
+- An email address for account verification
+- Optional: GitHub account for advanced integrations
+
+</Callout>
+
+## Create Your First Documentation Space
+
+Follow these steps to register, set up your account, and publish your initial content. The entire process takes under 5 minutes.
+
+<Steps>
+  <Step title="Sign Up for Fixit Jamaica" icon="user-plus">
+
+    Visit [https://app.fixitjamaica.com/signup](https://app.fixitjamaica.com/signup) and create your account.
+
+    <Tabs>
+      <Tab title="Email" icon="mail">
+
+        Enter your email, choose a strong password, and verify your inbox.
+
+      </Tab>
+      <Tab title="Google" icon="google">
+
+        Click "Sign up with Google" for instant access.
+
+      </Tab>
+    </Tabs>
+
+    After verification, you'll land on the dashboard.
+
+  </Step>
+
+  <Step title="Create a New Project" icon="plus">
+
+    From the dashboard, click **New Project**.
+
+    1. Enter project name: `My First Docs`
+    2. Select template: `Documentation Site`
+    3. Click **Create**
+
+    Your project opens in the editor with a welcome page.
+
+  </Step>
+
+  <Step title="Upload Initial Content" icon="upload">
+
+    Replace the default content with your own. Here's a sample MDX homepage:
+
+    <CodeGroup tabs="MDX">
+
+    ````mdx
+    ---
+    title: Welcome to My Docs
+    description: Your custom documentation site.
+    ---
+
+    ## Quick Overview
+
+    Get started with Fixit Jamaica in minutes.
+    ````
+
+    </CodeGroup>
+
+    Save changes with `Cmd` + `S` (Mac) or `Ctrl` + `S` (Windows/Linux).
+
+  </Step>
+
+  <Step title="Navigate and Edit" icon="settings">
+
+    Use the sidebar for navigation:
+
+    | Section     | Purpose                  |
+    |-------------|--------------------------|
+    | Pages       | Manage your MDX files    |
+    | Themes      | Customize appearance     |
+    | Settings    | Project configuration    |
+    | Preview     | Live site preview        |
+
+    Edit any page inline, add components like `<Callout>`, and preview instantly.
+
+    <Callout kind="tip">
+
+      Use the search bar to quickly find pages or components.
+
+    </Callout>
+
+  </Step>
+</Steps>
+
+## Next Steps
+
+Now that your first space is live, explore these resources:
+
+<Columns cols={3}>
+  <Card title="Authentication" icon="lock" href="/authentication">
+    Secure your projects with API keys and webhooks.
+  </Card>
+
+  <Card title="Advanced Editing" icon="edit-3" href="/guide">
+    Master components, custom themes, and integrations.
+  </Card>
+
+  <Card title="Changelog" icon="git-branch" href="/changelog">
+    Stay updated with the latest features.
+  </Card>
+</Columns>
+
+<Expandable title="Troubleshooting Common Issues" default-open="false">
+
+- **Login fails?** Check your email verification and browser cookies.
+- **Upload errors?** Ensure files are valid MDX (under 5MB).
+- **Preview not updating?** Hard refresh with `Cmd` + `Shift` + `R`.
+
+</Expandable>
+
+Your documentation space is now ready! Share the live URL from the dashboard to collaborate.

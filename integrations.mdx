@@ -1,0 +1,146 @@
+---
+title: Integrations and Extensions
+description: Connect Fixit Jamaica with other tools to enhance your documentation workflow.
+---
+
+## Overview
+
+Fixit Jamaica supports seamless integrations with popular third-party tools, webhooks for automation, export/import features, and full API access. You can extend your documentation workflow by connecting to services like Slack, GitHub, and Zapier. Set up webhooks to receive real-time updates on document changes. Export your content in multiple formats or build custom solutions using our REST API.
+
+<Callout kind="info">
+  All integrations require an active Fixit Jamaica account. Generate your `{API_KEY}` from the dashboard at `https://dashboard.example.com/settings/api`.
+</Callout>
+
+## Third-Party Integrations
+
+Connect Fixit Jamaica to your favorite tools for notifications, version control, and automation.
+
+<Columns cols={3}>
+  <Card title="Slack" icon="message-circle" href="https://slack.com" target="_blank">
+    Receive document update notifications in your Slack channels.
+  </Card>
+  <Card title="GitHub" icon="github" href="https://github.com" target="_blank">
+    Sync documentation repos with automatic pulls and pushes.
+  </Card>
+  <Card title="Zapier" icon="zap" href="https://zapier.com" target="_blank">
+    Build no-code automations with 5000+ apps.
+  </Card>
+</Columns>
+
+## Webhook Setup
+
+Webhooks enable real-time automation. You trigger events like document creation or updates to external services.
+
+<Steps>
+  <Step title="Create Webhook" icon="plus">
+    Navigate to `https://dashboard.example.com/settings/webhooks` and click "New Webhook".
+  </Step>
+  <Step title="Configure Events" icon="settings">
+    Select events such as `document.created` or `document.updated`.
+  </Step>
+  <Step title="Add Endpoint" icon="link">
+    Enter your webhook URL, e.g., `https://your-webhook-url.com/fixit`.
+  </Step>
+  <Step title="Test and Save" icon="check-circle">
+    Send a test payload and save the configuration.
+  </Step>
+</Steps>
+
+Here is a sample webhook payload:
+
+<CodeGroup tabs="JSON,cURL">
+  ```json
+  {
+    "event": "document.updated",
+    "document_id": "doc_123abc",
+    "timestamp": "2024-10-15T10:30:00Z",
+    "user_id": "user_456def"
+  }
+  ```
+  ```bash
+  curl -X POST https://your-webhook-url.com/fixit \
+    -H "Content-Type: application/json" \
+    -d '{
+      "event": "document.updated",
+      "document_id": "doc_123abc"
+    }'
+  ```
+</CodeGroup>
+
+## Export and Import Options
+
+Export your documentation for backups or migration. Import content from other platforms.
+
+<Tabs>
+  <Tab title="Export JSON" icon="download">
+    Use the dashboard export tool or API to download full site data.
+
+    ```bash
+    curl -H "Authorization: Bearer YOUR_API_KEY" \
+      https://api.example.com/v1/export/json \
+      -o fixit-docs.json
+    ```
+  </Tab>
+  <Tab title="Import Markdown" icon="upload">
+    Bulk import Markdown files via the import endpoint.
+
+    ```bash
+    curl -X POST -H "Authorization: Bearer YOUR_API_KEY" \
+      -F "files=@docs/*.md" \
+      https://api.example.com/v1/import/markdown
+    ```
+  </Tab>
+</Tabs>
+
+## API Access for Custom Integrations
+
+Build custom tools using our REST API at `https://api.example.com/v1`.
+
+<Request tabs="cURL,JavaScript" show-lines="true">
+  ```bash
+  curl -X GET https://api.example.com/v1/documents \
+    -H "Authorization: Bearer YOUR_API_KEY"
+  ```
+  ```javascript
+  const response = await fetch('https://api.example.com/v1/documents', {
+    headers: { 'Authorization': 'Bearer YOUR_API_KEY' }
+  });
+  const docs = await response.json();
+  ```
+</Request>
+
+<Response tabs="200,401">
+  ```json
+  {
+    "documents": [
+      {
+        "id": "doc_123",
+        "title": "Getting Started",
+        "updated_at": "2024-10-15T10:00:00Z"
+      }
+    ]
+  }
+  ```
+  ```json
+  {
+    "error": "Unauthorized",
+    "message": "Invalid API key"
+  }
+  ```
+</Response>
+
+<ParamField path="document_id" param-type="string" required="true">
+  Unique document identifier.
+</ParamField>
+
+<ParamField header="Authorization" param-type="string" required="true">
+  Bearer token: `Bearer YOUR_API_KEY`.
+</ParamField>
+
+<Expandable title="Advanced API Usage" default-open="false">
+  For rate limits and pagination, refer to the full API reference. Use `?page=1&limit=50` for large datasets.
+</Expandable>
+
+<Callout kind="tip">
+  Explore more in our [Quickstart](/quickstart) guide or [Authentication](/authentication) page.
+</Callout>

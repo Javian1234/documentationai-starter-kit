@@ -1,0 +1,118 @@
+---
+title: Changelog
+description: Track the latest updates and improvements to Fixit Jamaica Documentation.
+---
+
+## Recent Updates
+
+Stay informed about new features, bug fixes, and improvements in Fixit Jamaica Documentation. You receive automatic updates when available. Check this page regularly for release notes.
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added support for custom brand colors in frontmatter, like `brandColor: #3B82F6`.
+- Introduced `<Columns>` component for responsive grid layouts up to 5 columns.
+- New `<ParamField>` and `<ResponseField>` components for API documentation.
+
+## Improvements
+
+- Enhanced syntax highlighting for nested code blocks with automatic 4-backtick detection.
+- Improved mobile responsiveness for all JSX components.
+
+## Bug Fixes
+
+- Fixed parsing errors with special characters `{`, `}`, `<`, `>` in prose.
+- Resolved heading hierarchy validation skipping H3 levels.
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Added `<Update>` component for streamlined changelog entries.
+- Support for Mermaid diagrams as secure code blocks (no JSX component needed).
+
+## Bug Fixes
+
+- Corrected attribute parsing for double quotes in JSX components.
+- Fixed self-closing issues in container components like `<Steps>`.
+
+## Improvements
+
+- Optimized rendering performance for pages with 5+ components.
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["breaking", "feature"]}>
+
+## Initial Release
+
+- Core MDX parsing engine with policy enforcement.
+- Full suite of documentation components: `<Callout>`, `<Card>`, `<Steps>`, `<Tabs>`.
+- YAML frontmatter validation with no blank lines allowed.
+
+## Breaking Changes
+
+- Removed H1 support in body content; use frontmatter `title` instead.
+
+</Update>
+
+## Upgrade Process
+
+Follow these steps to upgrade Fixit Jamaica Documentation to the latest version.
+
+<Steps>
+  <Step title="Backup Your Site" icon="database">
+
+  Create a full backup of your documentation repository.
+
+  ```
+  git clone your-repo.git backup-docs
+  ```
+
+  </Step>
+  <Step title="Update Package" icon="download">
+    <CodeGroup tabs="npm,yarn">
+  ````bash
+  npm install fixit-jamaica-docs@latest
+  ````
+  ````bash
+  yarn add fixit-jamaica-docs@latest
+  ````
+    </CodeGroup>
+  </Step>
+  <Step title="Rebuild and Deploy" icon="rocket">
+
+  Rebuild your site and deploy.
+
+  ```
+  npm run build
+  npm run deploy
+  ```
+
+  </Step>
+</Steps>
+
+## Quick Links
+
+<Columns cols={3}>
+  <Card title="Introduction" icon="book-open" href="/introduction">
+    Get started with the basics.
+  </Card>
+  <Card title="Quickstart" icon="zap" href="/quickstart">
+    Set up in minutes.
+  </Card>
+  <Card title="Components" icon="code" href="/components">
+    Full component reference.
+  </Card>
+</Columns>
+
+<Callout kind="info">
+
+## Upcoming in v1.3.0
+
+Preview: Real-time collaboration editing, AI-assisted content generation, and advanced search with semantic indexing. Watch this space!
+
+</Callout>

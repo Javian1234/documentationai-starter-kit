@@ -1,0 +1,135 @@
+---
+title: Core Features
+description: Explore the main capabilities of Fixit Jamaica for building and maintaining documentation.
+---
+
+## Overview
+
+Fixit Jamaica empowers you to create, organize, and collaborate on documentation efficiently. You get tools for structuring content hierarchically, enabling team workflows, searching across documents, and managing versions without complexity. These core features help you build professional documentation sites quickly.
+
+<Columns cols={2}>
+  <Card title="Document Organization" icon="file-text" href="#document-organization">
+    Structure your docs with folders, pages, and navigation.
+  </Card>
+  <Card title="Team Collaboration" icon="users" href="#collaboration">
+    Work together with real-time edits and reviews.
+  </Card>
+  <Card title="Search & Indexing" icon="search" href="#search">
+    Find content instantly across your entire site.
+  </Card>
+  <Card title="Version Control" icon="git-branch" href="#version-control">
+    Track changes and roll back with Git integration.
+  </Card>
+</Columns>
+
+## Document Organization and Structure
+
+Organize your documentation into a clear hierarchy using folders and pages. You define navigation menus and sidebars directly in your project settings.
+
+<Steps>
+  <Step title="Create Folders" icon="folder">
+    In your project root, add folders like `guides/` and `api/`.
+
+    ```
+    mkdir docs/guides
+    mkdir docs/api
+    ```
+  </Step>
+  <Step title="Add Pages" icon="file">
+    Create MDX files in each folder.
+
+    ```
+    touch docs/guides/quickstart.mdx
+    touch docs/api/endpoints.mdx
+    ```
+  </Step>
+  <Step title="Configure Navigation" icon="menu">
+    Edit `nav.yaml` to set your structure.
+  </Step>
+</Steps>
+
+This setup generates automatic table of contents and breadcrumbs.
+
+<Callout kind="tip">
+  Use YAML frontmatter in each `.mdx` file to set titles and descriptions for better SEO.
+</Callout>
+
+## Collaboration Tools for Teams
+
+Invite team members to collaborate with role-based permissions. You assign editors, reviewers, or viewers.
+
+<Tabs>
+  <Tab title="Real-time Editing" icon="edit-3">
+    Multiple users edit simultaneously with live previews.
+
+    <CodeGroup tabs="MDX,YAML">
+    ````mdx
+    ---
+    title: "Quickstart Guide"
+    ---
+
+    ## Get Started
+
+    Install via npm.
+    ````
+    ````yaml
+    # nav.yaml
+    - title: Guides
+      href: /guides
+    ````
+    </CodeGroup>
+  </Tab>
+  <Tab title="Review Workflow" icon="eye">
+    Create pull requests for changes before publishing.
+  </Tab>
+</Tabs>
+
+## Search and Indexing Functions
+
+Fixit Jamaica indexes all your content automatically. You search by keywords, with fuzzy matching and snippets.
+
+<Expandable title="Advanced Search Configuration" default-open="false">
+  Customize in `config.yaml`:
+
+  ```yaml
+  search:
+    providers: ["algolia", "internal"]
+    minLength: 3
+  ```
+
+  This enables hybrid search across your docs.
+</Expandable>
+
+Results highlight matches and show page previews for quick navigation.
+
+## Version Control Basics
+
+Integrate with Git for full version history. You commit changes, branch for features, and deploy previews.
+
+```mermaid
+graph TD
+    A[Local Changes] --> B[git add .]
+    B --> C[git commit -m "Update docs"]
+    C --> D[git push origin main]
+    D --> E[Deploy Preview]
+```
+
+<CodeGroup tabs="Git CLI,GitHub">
+```bash
+git init
+git add .
+git commit -m "Initial docs"
+git remote add origin https://github.com/your-repo/fixit-jamaica-docs.git
+git push -u origin main
+```
+```bash
+# On GitHub: Create PR from feature branch
+gh pr create --title "Add search feature" --body "Implements advanced indexing"
+```
+</CodeGroup>
+
+<Callout kind="info">
+  Enable branch previews in settings to test changes before merging.
+</Callout>
+
+These features scale from solo projects to enterprise teams, ensuring your documentation stays organized and up-to-date.
